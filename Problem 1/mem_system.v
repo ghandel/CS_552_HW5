@@ -6,13 +6,13 @@ module mem_system(/*AUTOARG*/
    // Outputs
    DataOut, Done, Stall, CacheHit, err, 
    // Inputs
-   Addr, DataIn, Rd, Wr, createdump, clk, rst
+   Addr, DataIn, rd_en, wr_en, createdump, clk, rst
    );
    
    input [15:0] Addr;
    input [15:0] DataIn;
-   input        Rd;
-   input        Wr;
+   input        rd_en;
+   input        wr_en;
    input        createdump;
    input        clk;
    input        rst;
@@ -70,7 +70,7 @@ module mem_system(/*AUTOARG*/
 
 	mem_ctrl ctrl_unit(
 	/* input */
-	.Rd(Rd), .Wr(Wr), .hit(hit), .dirty(dirty), .valid(valid),
+	.rd_en(rd_en), .wr_en(wr_en), .hit(hit), .dirty(dirty), .valid(valid),
 	.clk(clk), .rst(rst),
 	/* output */
 	.comp(comp), .write(write), .valid_in(valid_in), .sel_data_cache(sel_data_cache),

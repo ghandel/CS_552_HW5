@@ -68,8 +68,8 @@ module mem_system(/*AUTOARG*/
 	
 	assign tag_mem = sel_tag_mem ? tag_out : tag_in;
 
-	mem_ctrl ctrl_unit(.Rd(Rd), 
-	                    .Wr(Wr), 
+	mem_ctrl ctrl_unit(.rd_en(Rd), 
+	                    .wr_en(Wr), 
 	                    .clk(clk), 
 	                    .rst(rst),
 	                    .hit_0(hit_0), 
@@ -85,9 +85,9 @@ module mem_system(/*AUTOARG*/
 	                    .wr_mem(wr_mem), .rd_mem(rd_mem), 
 	                    .sel_tag_mem(sel_tag_mem), 
 	                    .offset(offset_mem),
-	                    .Done(Done), 
-	                    .CacheHit(CacheHit), 
-	                    .Stall(Stall), 
+	                    .done(Done), 
+	                    .cache_hit(CacheHit), 
+	                    .stall(Stall), 
 	                    .err(err_ctrl),
 	                    .sel_cache(sel_cache), 
 	                    .enable_0(enable_0), 

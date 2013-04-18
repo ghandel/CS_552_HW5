@@ -22,23 +22,23 @@ module mem_ctrl(
 	wire [8:0] curr_state, next_state;
 	
 	wire s0, s1, s2, s3, s4, s5, s6, s7, s8;
-	assign {s8, s7, s6, s5, s4, s3, s2, s1, s0} = cur_state;
+	assign {s8, s7, s6, s5, s4, s3, s2, s1, s0} = curr_state;
 	wire n0, n1, n2, n3, n4, n5, n6, n7, n8;
 	assign next_state = {n8, n7, n6, n5, n4, n3, n2, n1, n0};
 
 	wire S_idle, S_access_write, S_allocate, S_access_read; 
-	assign S_idle = (cur_state == 10'b0)? 1'b1 : 1'b0; // IDLE
+	assign S_idle = (curr_state == 10'b0)? 1'b1 : 1'b0; // IDLE
 	assign S_access_write = s3; // Access Write
 	assign S_allocate = s1; // Allocate
 	assign S_access_read = s5; // access read 
 
-	wire Request; // record initial request type: 1-Rd, 0-Wr
+	wire Request; // record initial request type: 1-rd_en, 0-wr_en
 	wire Access_write; // record whether state machine go through Access Write state (S3)
 
 	// state registers
-	dff state[8:0] (.d(next_state), .q(cur_state), .clk(clk), .rst(rst));
+	dff state[8:0] (.d(next_state), .q(curr_state), .clk(clk), .rst(rst));
 	// Request register (IDLE as enbale signal)
-	dff_en Req_init_reg (.d(Rd), .q(Request), .en(S_idle), .clk(clk), .rst(rst));
+	dff_en Req_init_reg (.d(rd_en), .q(Request), .en(S_idle), .clk(clk), .rst(rst));
 	// Access_write register
 	dff Ac_write_reg (.d(S_access_write), .q(Access_write), .clk(clk), .rst(rst));
 	// counter
@@ -52,7 +52,7 @@ module mem_ctrl(
 
 	// state transition
 	// compare read
-	assign n0 = (S_idle & Rd) | (s3 & Request);
+	assign n0 = (S_idle & rd_en) | (s3 & Request);
 	// allocate
 	assign n1 = ( (s0 | s4) & ((~valid) | (~hit & ~dirty)) ) | s8 | (s1 & ~(counter==2'b11));
 	// wait for memory read 
@@ -60,7 +60,7 @@ module mem_ctrl(
 	// access write 
 	assign n3 = s2;
 	// compare write
-	assign n4 = (S_idle & Wr) | (s3 & ~Request);
+	assign n4 = (S_idle & wr_en) | (s3 & ~Request);
 	// access read, write back
 	assign n5 = (s0 | s4) & (valid & ~hit & dirty) | (s5 & ~(counter==2'b11));
 	// wait for write
@@ -85,7 +85,7 @@ module mem_ctrl(
 	assign Done = (s0 | s4) & valid & hit;
 	assign CacheHit = Done & ~Access_write; // did not go through access write
 	assign Stall = ~S_idle;	
-	assign err = & cur_state;
+	assign err = & curr_state;
 
 endmodule
 

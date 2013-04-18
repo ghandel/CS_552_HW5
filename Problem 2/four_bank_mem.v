@@ -3,7 +3,7 @@
 // four_bank_mem -- four banks of the
 // 4-cycle "final_memory" for use in the
 // most advanced stage of the project
-/
+//
 // This is a word-addressable,
 // 16-bit wide, 64K-word memory.
 //

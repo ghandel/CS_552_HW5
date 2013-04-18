@@ -1,0 +1,44 @@
+# vsim +addr_trace_file_name=mem.addr -lib __work -c mem_system_perfbench 
+# //  ModelSim SE 5.8b Jan 01 2004 Linux 2.6.32-358.0.1.el6.x86_64
+# //
+# //  Copyright Model Technology, a Mentor Graphics Corporation company, 2004
+# //                         All Rights Reserved.
+# //                   UNPUBLISHED, LICENSED SOFTWARE.
+# //         CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
+# //        PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS.
+# //
+# Loading __work.mem_system_perfbench
+# Loading __work.mem_system_hier
+# Loading __work.clkrst
+# Loading __work.mem_system
+# Loading __work.dff
+# Loading __work.mem_ctrl
+# Loading __work.dff_en
+# Loading __work.cache
+# Loading __work.memc
+# Loading __work.memv
+# Loading __work.four_bank_mem
+# Loading __work.final_memory
+# Loading __work.mem_system_ref
+# ** Error: (vsim-3389) mem_system.v(94): Port 'hit_0' not found in the connected module (5th connection).
+#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
+# ** Error: (vsim-3389) mem_system.v(94): Port 'dirty_0' not found in the connected module (6th connection).
+#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
+# ** Error: (vsim-3389) mem_system.v(94): Port 'valid_0' not found in the connected module (7th connection).
+#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
+# ** Error: (vsim-3389) mem_system.v(94): Port 'hit_1' not found in the connected module (8th connection).
+#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
+# ** Error: (vsim-3389) mem_system.v(94): Port 'dirty_1' not found in the connected module (9th connection).
+#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
+# ** Error: (vsim-3389) mem_system.v(94): Port 'valid_1' not found in the connected module (10th connection).
+#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
+# ** Error: (vsim-3389) mem_system.v(94): Port 'sel_cache' not found in the connected module (23rd connection).
+#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
+# ** Error: (vsim-3389) mem_system.v(94): Port 'enable_0' not found in the connected module (24th connection).
+#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
+# ** Error: (vsim-3389) mem_system.v(94): Port 'enable_1' not found in the connected module (25th connection).
+#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
+# ** Fatal: (vsim-3365) mem_system.v(94): Too many port connections. Expected 19, found 25.
+#    Time: 0 ns  Iteration: 0  Instance: /mem_system_perfbench/DUT/m0/ctrl_unit File: mem_ctrl.v
+# FATAL ERROR while loading design
+# Error loading design

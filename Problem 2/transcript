@@ -20,25 +20,15 @@
 # Loading __work.four_bank_mem
 # Loading __work.final_memory
 # Loading __work.mem_system_ref
-# ** Error: (vsim-3389) mem_system.v(94): Port 'hit_0' not found in the connected module (5th connection).
-#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
-# ** Error: (vsim-3389) mem_system.v(94): Port 'dirty_0' not found in the connected module (6th connection).
-#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
-# ** Error: (vsim-3389) mem_system.v(94): Port 'valid_0' not found in the connected module (7th connection).
-#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
-# ** Error: (vsim-3389) mem_system.v(94): Port 'hit_1' not found in the connected module (8th connection).
-#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
-# ** Error: (vsim-3389) mem_system.v(94): Port 'dirty_1' not found in the connected module (9th connection).
-#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
-# ** Error: (vsim-3389) mem_system.v(94): Port 'valid_1' not found in the connected module (10th connection).
-#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
-# ** Error: (vsim-3389) mem_system.v(94): Port 'sel_cache' not found in the connected module (23rd connection).
-#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
-# ** Error: (vsim-3389) mem_system.v(94): Port 'enable_0' not found in the connected module (24th connection).
-#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
-# ** Error: (vsim-3389) mem_system.v(94): Port 'enable_1' not found in the connected module (25th connection).
-#         Region: /mem_system_perfbench/DUT/m0/ctrl_unit
-# ** Fatal: (vsim-3365) mem_system.v(94): Too many port connections. Expected 19, found 25.
-#    Time: 0 ns  Iteration: 0  Instance: /mem_system_perfbench/DUT/m0/ctrl_unit File: mem_ctrl.v
-# FATAL ERROR while loading design
-# Error loading design
+run -all
+# Using trace file                                                                                                                                                                                                                                                         mem.addr
+# LOG: ReQNum    1 Cycle       11 ReqCycle        3 Wr Addr 0x015c Value 0x0018 ValueRef 0x0018 HIT 0
+# 
+# LOG: ReqNum    2 Cycle       13 ReqCycle       12 Rd Addr 0x015c Value 0x0018 ValueRef 0x0018 HIT 1
+# 
+# LOG: Done all Requests:          2 Replies:          2 Cycles:         14 Hits:          1
+# Test status: SUCCESS
+# Break at mem_system_perfbench.v line 200
+# Stopped at mem_system_perfbench.v line 200 
+# 
+# <EOF> 

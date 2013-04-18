@@ -1,3 +1,4 @@
+# vsim +addr_trace_file_name=mem.addr -lib __work -c mem_system_perfbench 
 # //  ModelSim SE 5.8b Jan 01 2004 Linux 2.6.32-358.0.1.el6.x86_64
 # //
 # //  Copyright Model Technology, a Mentor Graphics Corporation company, 2004
@@ -6,5 +7,22 @@
 # //         CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
 # //        PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS.
 # //
-# vsim -view dataset=dump.wlf 
-# dump.wlf opened as dataset "dataset"
+# Loading __work.mem_system_perfbench
+# Loading __work.mem_system_hier
+# Loading __work.clkrst
+# Loading __work.mem_system
+# Loading __work.dff
+# Loading __work.mem_ctrl
+# Loading __work.dff_en
+# Loading __work.cache
+# Loading __work.memc
+# Loading __work.memv
+# Loading __work.four_bank_mem
+# Loading __work.final_memory
+# Loading __work.mem_system_ref
+run -all
+# Using trace file                                                                                                                                                                                                                                                         mem.addr
+# hmm....more than 100000 cycles of simulation...error?
+# 
+# ** Note: $finish    : clkrst.v(42)
+#    Time: 100 ms  Iteration: 0  Instance: /mem_system_perfbench/DUT/clkgen

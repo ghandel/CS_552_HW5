@@ -1,8 +1,5 @@
-/* $Author: karu $ */
-/* $LastChangedDate: 2009-04-24 09:28:13 -0500 (Fri, 24 Apr 2009) $ */
-/* $Rev: 77 $ */
-
-module mem_system(/*AUTOARG*/
+// top module
+module mem_system(
    // Outputs
    DataOut, Done, Stall, CacheHit, err, 
    // Inputs
@@ -26,8 +23,7 @@ module mem_system(/*AUTOARG*/
    /* data_mem = 1, inst_mem = 0 *
     * needed for cache parameter */
    parameter mem_type = 0;
-   
-   
+
 	/* internal signal */
 	wire comp, write, valid_in, sel_data_cache; // for cache
 	wire wr_mem, rd_mem, sel_tag_mem; // for main memory
@@ -100,10 +96,5 @@ module mem_system(/*AUTOARG*/
 
 	// output err
 	assign err = err_ctrl | err_cache | err_mem;
-   
+
 endmodule // mem_system
-
-   
-
-
-// DUMMY LINE FOR REV CONTROL :9:
